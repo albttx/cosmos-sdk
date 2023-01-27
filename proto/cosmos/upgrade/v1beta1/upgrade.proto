@@ -53,14 +53,32 @@ message SoftwareUpgradeProposal {
   option (amino.name)                        = "cosmos-sdk/SoftwareUpgradeProposal";
   option (gogoproto.equal)                   = true;
 
+<<<<<<< Updated upstream
   // title of the proposal
+=======
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
   string title       = 1;
+
+  // description of the proposal
+  string description = 2;
+<<<<<<< Updated upstream
+
+  // plan of the proposal
+  Plan   plan        = 3 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+=======
+  Plan   plan        = 3 [(gogoproto.nullable) = false];
+=======
+  // title of the proposal
+  string title = 1;
 
   // description of the proposal
   string description = 2;
 
   // plan of the proposal
-  Plan   plan        = 3 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+  Plan plan = 3 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 }
 
 // CancelSoftwareUpgradeProposal is a gov Content type for cancelling a software
@@ -73,10 +91,21 @@ message CancelSoftwareUpgradeProposal {
   option (amino.name)                        = "cosmos-sdk/CancelSoftwareUpgradeProposal";
   option (gogoproto.equal)                   = true;
 
+<<<<<<< Updated upstream
   // title of the proposal
   string title       = 1;
 
   // description of the proposal
+=======
+<<<<<<< Updated upstream
+  string title       = 1;
+=======
+  // title of the proposal
+  string title = 1;
+
+  // description of the proposal
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   string description = 2;
 }
 

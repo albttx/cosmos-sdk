@@ -32,8 +32,14 @@ service Msg {
 
   // FundCommunityPool defines a method to allow an account to directly
   // fund the community pool.
+<<<<<<< Updated upstream
   rpc FundCommunityPool(MsgFundCommunityPool)
       returns (MsgFundCommunityPoolResponse);
+=======
+  rpc FundCommunityPool(MsgFundCommunityPool) returns (MsgFundCommunityPoolResponse);
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 
   // UpdateParams defines a governance operation for updating the x/distribution
   // module parameters. The authority is defined in the keeper.
@@ -47,15 +53,24 @@ service Msg {
   // keeper.
   //
   // Since: cosmos-sdk 0.47
+<<<<<<< Updated upstream
   rpc CommunityPoolSpend(MsgCommunityPoolSpend)
       returns (MsgCommunityPoolSpendResponse);
+=======
+  rpc CommunityPoolSpend(MsgCommunityPoolSpend) returns (MsgCommunityPoolSpendResponse);
+>>>>>>> Stashed changes
 
   // DepositValidatorRewardsPool defines a method to provide additional rewards
   // to delegators to a specific validator.
   //
   // Since: cosmos-sdk 0.48
+<<<<<<< Updated upstream
   rpc DepositValidatorRewardsPool(MsgDepositValidatorRewardsPool)
       returns (MsgDepositValidatorRewardsPoolResponse);
+=======
+  rpc DepositValidatorRewardsPool(MsgDepositValidatorRewardsPool) returns (MsgDepositValidatorRewardsPoolResponse);
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 }
 
 // MsgSetWithdrawAddress sets the withdraw address for
@@ -141,6 +156,11 @@ message MsgFundCommunityPool {
 
 // MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type.
 message MsgFundCommunityPoolResponse {}
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 
 // MsgUpdateParams is the Msg/UpdateParams request type.
 //
@@ -155,8 +175,12 @@ message MsgUpdateParams {
   // params defines the x/distribution parameters to update.
   //
   // NOTE: All parameters must be supplied.
+<<<<<<< Updated upstream
   Params params = 2
       [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+=======
+  Params params = 2 [(gogoproto.nullable) = false, (amino.dont_omitempty) = true];
+>>>>>>> Stashed changes
 }
 
 // MsgUpdateParamsResponse defines the response structure for executing a
@@ -175,8 +199,13 @@ message MsgCommunityPoolSpend {
   option (amino.name)           = "cosmos-sdk/distr/MsgCommunityPoolSpend";
 
   // authority is the address that controls the module (defaults to x/gov unless overwritten).
+<<<<<<< Updated upstream
   string   authority = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
   string   recipient = 2;
+=======
+  string   authority                       = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  string   recipient                       = 2;
+>>>>>>> Stashed changes
   repeated cosmos.base.v1beta1.Coin amount = 3 [
     (gogoproto.nullable)     = false,
     (amino.dont_omitempty)   = true,
@@ -200,12 +229,19 @@ message MsgDepositValidatorRewardsPool {
   option (gogoproto.equal)           = false;
   option (gogoproto.goproto_getters) = false;
 
+<<<<<<< Updated upstream
   string authority         = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
   string validator_address = 2 [(cosmos_proto.scalar) = "cosmos.AddressString"];
   repeated cosmos.base.v1beta1.Coin amount = 3 [
     (gogoproto.nullable)     = false,
     (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"
   ];
+=======
+  string   authority                       = 1 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  string   validator_address               = 2 [(cosmos_proto.scalar) = "cosmos.AddressString"];
+  repeated cosmos.base.v1beta1.Coin amount = 3
+      [(gogoproto.nullable) = false, (gogoproto.castrepeated) = "github.com/cosmos/cosmos-sdk/types.Coins"];
+>>>>>>> Stashed changes
 }
 
 // MsgDepositValidatorRewardsPoolResponse defines the response to executing a
@@ -213,3 +249,7 @@ message MsgDepositValidatorRewardsPool {
 //
 // Since: cosmos-sdk 0.48
 message MsgDepositValidatorRewardsPoolResponse {}
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

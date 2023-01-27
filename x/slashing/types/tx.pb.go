@@ -31,6 +31,82 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
+// MsgJail defines the Msg/Jail request type
+type MsgJail struct {
+	Authority          string   `protobuf:"bytes,1,opt,name=authority,proto3" json:"authority,omitempty"`
+	ValidatorAddresses []string `protobuf:"bytes,2,rep,name=validator_addresses,json=validatorAddresses,proto3" json:"address"`
+}
+
+func (m *MsgJail) Reset()         { *m = MsgJail{} }
+func (m *MsgJail) String() string { return proto.CompactTextString(m) }
+func (*MsgJail) ProtoMessage()    {}
+func (*MsgJail) Descriptor() ([]byte, []int) {
+	return fileDescriptor_3c5611c0c4a59d9d, []int{0}
+}
+func (m *MsgJail) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgJail) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgJail.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgJail) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgJail.Merge(m, src)
+}
+func (m *MsgJail) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgJail) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgJail.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgJail proto.InternalMessageInfo
+
+// MsgJailResponse defines the Msg/Unjail response type
+type MsgJailResponse struct {
+}
+
+func (m *MsgJailResponse) Reset()         { *m = MsgJailResponse{} }
+func (m *MsgJailResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgJailResponse) ProtoMessage()    {}
+func (*MsgJailResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_3c5611c0c4a59d9d, []int{1}
+}
+func (m *MsgJailResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgJailResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgJailResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgJailResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgJailResponse.Merge(m, src)
+}
+func (m *MsgJailResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgJailResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgJailResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgJailResponse proto.InternalMessageInfo
+
 // MsgUnjail defines the Msg/Unjail request type
 type MsgUnjail struct {
 	ValidatorAddr string `protobuf:"bytes,1,opt,name=validator_addr,json=validatorAddr,proto3" json:"address"`
@@ -40,7 +116,7 @@ func (m *MsgUnjail) Reset()         { *m = MsgUnjail{} }
 func (m *MsgUnjail) String() string { return proto.CompactTextString(m) }
 func (*MsgUnjail) ProtoMessage()    {}
 func (*MsgUnjail) Descriptor() ([]byte, []int) {
-	return fileDescriptor_3c5611c0c4a59d9d, []int{0}
+	return fileDescriptor_3c5611c0c4a59d9d, []int{2}
 }
 func (m *MsgUnjail) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -77,7 +153,7 @@ func (m *MsgUnjailResponse) Reset()         { *m = MsgUnjailResponse{} }
 func (m *MsgUnjailResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgUnjailResponse) ProtoMessage()    {}
 func (*MsgUnjailResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_3c5611c0c4a59d9d, []int{1}
+	return fileDescriptor_3c5611c0c4a59d9d, []int{3}
 }
 func (m *MsgUnjailResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -106,6 +182,11 @@ func (m *MsgUnjailResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgUnjailResponse proto.InternalMessageInfo
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 // MsgUpdateParams is the Msg/UpdateParams request type.
 //
 // Since: cosmos-sdk 0.47
@@ -122,7 +203,11 @@ func (m *MsgUpdateParams) Reset()         { *m = MsgUpdateParams{} }
 func (m *MsgUpdateParams) String() string { return proto.CompactTextString(m) }
 func (*MsgUpdateParams) ProtoMessage()    {}
 func (*MsgUpdateParams) Descriptor() ([]byte, []int) {
+<<<<<<< Updated upstream
 	return fileDescriptor_3c5611c0c4a59d9d, []int{2}
+=======
+	return fileDescriptor_3c5611c0c4a59d9d, []int{4}
+>>>>>>> Stashed changes
 }
 func (m *MsgUpdateParams) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -176,7 +261,11 @@ func (m *MsgUpdateParamsResponse) Reset()         { *m = MsgUpdateParamsResponse
 func (m *MsgUpdateParamsResponse) String() string { return proto.CompactTextString(m) }
 func (*MsgUpdateParamsResponse) ProtoMessage()    {}
 func (*MsgUpdateParamsResponse) Descriptor() ([]byte, []int) {
+<<<<<<< Updated upstream
 	return fileDescriptor_3c5611c0c4a59d9d, []int{3}
+=======
+	return fileDescriptor_3c5611c0c4a59d9d, []int{5}
+>>>>>>> Stashed changes
 }
 func (m *MsgUpdateParamsResponse) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -205,7 +294,13 @@ func (m *MsgUpdateParamsResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgUpdateParamsResponse proto.InternalMessageInfo
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 func init() {
+	proto.RegisterType((*MsgJail)(nil), "cosmos.slashing.v1beta1.MsgJail")
+	proto.RegisterType((*MsgJailResponse)(nil), "cosmos.slashing.v1beta1.MsgJailResponse")
 	proto.RegisterType((*MsgUnjail)(nil), "cosmos.slashing.v1beta1.MsgUnjail")
 	proto.RegisterType((*MsgUnjailResponse)(nil), "cosmos.slashing.v1beta1.MsgUnjailResponse")
 	proto.RegisterType((*MsgUpdateParams)(nil), "cosmos.slashing.v1beta1.MsgUpdateParams")
@@ -215,11 +310,20 @@ func init() {
 func init() { proto.RegisterFile("cosmos/slashing/v1beta1/tx.proto", fileDescriptor_3c5611c0c4a59d9d) }
 
 var fileDescriptor_3c5611c0c4a59d9d = []byte{
+<<<<<<< Updated upstream
 	// 452 bytes of a gzipped FileDescriptorProto
+=======
+<<<<<<< Updated upstream
+	// 296 bytes of a gzipped FileDescriptorProto
+=======
+	// 514 bytes of a gzipped FileDescriptorProto
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x52, 0x48, 0xce, 0x2f, 0xce,
 	0xcd, 0x2f, 0xd6, 0x2f, 0xce, 0x49, 0x2c, 0xce, 0xc8, 0xcc, 0x4b, 0xd7, 0x2f, 0x33, 0x4c, 0x4a,
 	0x2d, 0x49, 0x34, 0xd4, 0x2f, 0xa9, 0xd0, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x12, 0x87, 0xa8,
 	0xd0, 0x83, 0xa9, 0xd0, 0x83, 0xaa, 0x90, 0x12, 0x49, 0xcf, 0x4f, 0xcf, 0x07, 0xab, 0xd1, 0x07,
+<<<<<<< Updated upstream
 	0xb1, 0x20, 0xca, 0xa5, 0xd4, 0x70, 0x19, 0x08, 0xd7, 0x0f, 0x51, 0x27, 0x09, 0x51, 0x17, 0x0f,
 	0x31, 0x00, 0x6a, 0x07, 0x44, 0x0a, 0x6a, 0xa3, 0x7e, 0x6e, 0x31, 0x48, 0x37, 0x88, 0x82, 0x4a,
 	0x08, 0x26, 0xe6, 0x66, 0xe6, 0xe5, 0xeb, 0x83, 0x49, 0x88, 0x90, 0xd2, 0x2c, 0x46, 0x2e, 0x4e,
@@ -245,8 +349,110 @@ var fileDescriptor_3c5611c0c4a59d9d = []byte{
 	0x4d, 0xd2, 0x4b, 0xce, 0xcf, 0x85, 0x26, 0x67, 0x7d, 0xec, 0xc1, 0x58, 0x52, 0x59, 0x90, 0x5a,
 	0x9c, 0xc4, 0x06, 0x4e, 0xbf, 0xc6, 0x80, 0x00, 0x00, 0x00, 0xff, 0xff, 0x5d, 0x81, 0x0b, 0x89,
 	0x81, 0x03, 0x00, 0x00,
+=======
+<<<<<<< Updated upstream
+	0xb1, 0x20, 0xca, 0xa5, 0x24, 0x21, 0xca, 0xe3, 0x21, 0x12, 0x50, 0xbd, 0x10, 0x29, 0xa8, 0x49,
+	0xfa, 0xb9, 0xc5, 0x20, 0x6b, 0x40, 0x14, 0x44, 0x42, 0xa9, 0x84, 0x8b, 0xd3, 0xb7, 0x38, 0x3d,
+	0x34, 0x2f, 0x2b, 0x31, 0x33, 0x47, 0xc8, 0x8b, 0x8b, 0xaf, 0x2c, 0x31, 0x27, 0x33, 0x25, 0xb1,
+	0x24, 0xbf, 0x28, 0x3e, 0x31, 0x25, 0xa5, 0x48, 0x82, 0x51, 0x81, 0x51, 0x83, 0xd3, 0x49, 0xf9,
+	0xd5, 0x3d, 0x79, 0x76, 0x10, 0x3f, 0xb5, 0xb8, 0xf8, 0xd2, 0x16, 0x5d, 0x11, 0xa8, 0xd1, 0x8e,
+	0x10, 0x91, 0xe0, 0x92, 0xa2, 0xcc, 0xbc, 0xf4, 0x20, 0x5e, 0xb8, 0x56, 0x90, 0xb8, 0x95, 0x74,
+	0xc7, 0x02, 0x79, 0x86, 0x19, 0x0b, 0xe4, 0x19, 0x9b, 0x9e, 0x6f, 0xd0, 0x42, 0x33, 0x56, 0x49,
+	0x98, 0x4b, 0x10, 0x6e, 0x6b, 0x50, 0x6a, 0x71, 0x41, 0x7e, 0x5e, 0x71, 0xaa, 0x51, 0x3c, 0x17,
+	0xb3, 0x6f, 0x71, 0xba, 0x50, 0x04, 0x17, 0x1b, 0xd4, 0x39, 0x4a, 0x7a, 0x38, 0xfc, 0xaf, 0x07,
+	0xd7, 0x2c, 0xa5, 0x45, 0x58, 0x0d, 0xcc, 0x02, 0x27, 0xef, 0x15, 0x8f, 0xe4, 0x18, 0x4f, 0x3c,
+	0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x09, 0x8f, 0xe5, 0x18, 0x2e,
+	0x3c, 0x96, 0x63, 0xb8, 0xf1, 0x58, 0x8e, 0x21, 0x4a, 0x37, 0x3d, 0xb3, 0x24, 0xa3, 0x34, 0x49,
+	0x2f, 0x39, 0x3f, 0x17, 0x1a, 0x76, 0x50, 0x4a, 0xb7, 0x38, 0x25, 0x5b, 0xbf, 0x02, 0x11, 0x4d,
+	0x25, 0x95, 0x05, 0xa9, 0xc5, 0x49, 0x6c, 0xe0, 0xf0, 0x33, 0x06, 0x04, 0x00, 0x00, 0xff, 0xff,
+	0xc5, 0xe4, 0xf3, 0x05, 0xc6, 0x01, 0x00, 0x00,
+=======
+	0xb1, 0x20, 0xca, 0xa5, 0xd4, 0x70, 0x19, 0x08, 0xd7, 0x0f, 0x51, 0x27, 0x09, 0x51, 0x17, 0x0f,
+	0x31, 0x00, 0x6a, 0x07, 0x44, 0x0a, 0x6a, 0xa3, 0x7e, 0x6e, 0x31, 0x48, 0x37, 0x88, 0x82, 0x4a,
+	0x08, 0x26, 0xe6, 0x66, 0xe6, 0xe5, 0xeb, 0x83, 0x49, 0x88, 0x90, 0xd2, 0x1e, 0x46, 0x2e, 0x76,
+	0xdf, 0xe2, 0x74, 0xaf, 0xc4, 0xcc, 0x1c, 0x21, 0x33, 0x2e, 0xce, 0xc4, 0xd2, 0x92, 0x8c, 0xfc,
+	0xa2, 0xcc, 0x92, 0x4a, 0x09, 0x46, 0x05, 0x46, 0x0d, 0x4e, 0x27, 0x89, 0x4b, 0x5b, 0x74, 0x45,
+	0xa0, 0x86, 0x3b, 0xa6, 0xa4, 0x14, 0xa5, 0x16, 0x17, 0x07, 0x97, 0x14, 0x65, 0xe6, 0xa5, 0x07,
+	0x21, 0x94, 0x0a, 0xa5, 0x72, 0x09, 0x97, 0x25, 0xe6, 0x64, 0xa6, 0x24, 0x96, 0xe4, 0x17, 0xc5,
+	0x27, 0x42, 0x54, 0xa5, 0x16, 0x4b, 0x30, 0x29, 0x30, 0x6b, 0x70, 0x3a, 0x99, 0xbc, 0xba, 0x27,
+	0xcf, 0x0e, 0x15, 0xc4, 0x65, 0xd8, 0xa2, 0xe7, 0x1b, 0xb4, 0x60, 0x6a, 0x56, 0x3c, 0xdf, 0xa0,
+	0xc5, 0x18, 0x24, 0x04, 0x37, 0xd0, 0x11, 0x66, 0x9e, 0x95, 0x50, 0xc7, 0x02, 0x79, 0x86, 0xa6,
+	0xe7, 0x1b, 0xb4, 0x10, 0x56, 0x2b, 0x09, 0x72, 0xf1, 0x43, 0x5d, 0x1f, 0x94, 0x5a, 0x5c, 0x90,
+	0x9f, 0x57, 0x9c, 0xaa, 0x34, 0x8b, 0x91, 0x8b, 0xd3, 0xb7, 0x38, 0x3d, 0x34, 0x2f, 0x0b, 0xe4,
+	0xa7, 0x68, 0x2e, 0x3e, 0x54, 0xb7, 0x41, 0x3d, 0x46, 0x9e, 0xb3, 0x78, 0x51, 0x9c, 0x65, 0x65,
+	0x00, 0x73, 0x11, 0x9a, 0x1d, 0x5d, 0xcf, 0x37, 0x68, 0x41, 0x4d, 0xd4, 0x2d, 0x4e, 0xc9, 0xd6,
+	0x87, 0x3b, 0x47, 0x49, 0x98, 0x4b, 0x10, 0xce, 0x81, 0xbb, 0xf8, 0x38, 0x23, 0xd8, 0x17, 0xa1,
+	0x05, 0x29, 0x89, 0x25, 0xa9, 0x01, 0x89, 0x45, 0x89, 0xb9, 0xc5, 0x64, 0xc7, 0x85, 0x13, 0x17,
+	0x5b, 0x01, 0xd8, 0x04, 0x09, 0x26, 0x05, 0x46, 0x0d, 0x6e, 0x23, 0x79, 0x3d, 0x1c, 0xc9, 0x4f,
+	0x0f, 0x62, 0x91, 0x13, 0xe7, 0x89, 0x7b, 0xf2, 0x0c, 0x10, 0xdf, 0x41, 0x75, 0x5a, 0x59, 0xa0,
+	0x06, 0x32, 0xc8, 0x37, 0xaa, 0x48, 0xbe, 0xa9, 0x40, 0xa4, 0x4d, 0x34, 0x57, 0x2b, 0x49, 0x72,
+	0x89, 0xa3, 0x09, 0xc1, 0x3c, 0x69, 0xb4, 0x8c, 0x89, 0x8b, 0xd9, 0xb7, 0x38, 0x5d, 0x28, 0x88,
+	0x8b, 0x05, 0x9c, 0xd8, 0x14, 0x70, 0x3a, 0x0c, 0x1a, 0xa1, 0x52, 0x1a, 0x84, 0x54, 0xc0, 0xcc,
+	0x16, 0x8a, 0xe0, 0x62, 0x83, 0x46, 0xb7, 0x12, 0x3e, 0x3d, 0x10, 0x35, 0x52, 0x5a, 0x84, 0xd5,
+	0xc0, 0x4d, 0xce, 0xe2, 0xe2, 0x41, 0x89, 0x16, 0xbc, 0x6e, 0x42, 0x56, 0x29, 0x65, 0x40, 0xac,
+	0x4a, 0x98, 0x5d, 0x52, 0xac, 0x0d, 0xa0, 0x58, 0x70, 0xf2, 0x5e, 0xf1, 0x48, 0x8e, 0xf1, 0xc4,
+	0x23, 0x39, 0xc6, 0x0b, 0x8f, 0xe4, 0x18, 0x1f, 0x3c, 0x92, 0x63, 0x9c, 0xf0, 0x58, 0x8e, 0xe1,
+	0xc2, 0x63, 0x39, 0x86, 0x1b, 0x8f, 0xe5, 0x18, 0xa2, 0x74, 0xd3, 0x33, 0x4b, 0x32, 0x4a, 0x93,
+	0xf4, 0x92, 0xf3, 0x73, 0xa1, 0x99, 0x5e, 0x1f, 0x7b, 0xd4, 0x94, 0x54, 0x16, 0xa4, 0x16, 0x27,
+	0xb1, 0x81, 0x73, 0xb9, 0x31, 0x20, 0x00, 0x00, 0xff, 0xff, 0x4b, 0x2f, 0xba, 0xff, 0xa7, 0x04,
+	0x00, 0x00,
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 }
 
+func (this *MsgJail) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*MsgJail)
+	if !ok {
+		that2, ok := that.(MsgJail)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	if this.Authority != that1.Authority {
+		return false
+	}
+	if len(this.ValidatorAddresses) != len(that1.ValidatorAddresses) {
+		return false
+	}
+	for i := range this.ValidatorAddresses {
+		if this.ValidatorAddresses[i] != that1.ValidatorAddresses[i] {
+			return false
+		}
+	}
+	return true
+}
+func (this *MsgJailResponse) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*MsgJailResponse)
+	if !ok {
+		that2, ok := that.(MsgJailResponse)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	return true
+}
 func (this *MsgUnjail) Equal(that interface{}) bool {
 	if that == nil {
 		return this == nil
@@ -353,6 +559,8 @@ const _ = grpc.SupportPackageIsVersion4
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type MsgClient interface {
+	// Jail defines governance operation to jail a validator
+	Jail(ctx context.Context, in *MsgJail, opts ...grpc.CallOption) (*MsgJailResponse, error)
 	// Unjail defines a method for unjailing a jailed validator, thus returning
 	// them into the bonded validator set, so they can begin receiving provisions
 	// and rewards again.
@@ -370,6 +578,15 @@ type msgClient struct {
 
 func NewMsgClient(cc grpc1.ClientConn) MsgClient {
 	return &msgClient{cc}
+}
+
+func (c *msgClient) Jail(ctx context.Context, in *MsgJail, opts ...grpc.CallOption) (*MsgJailResponse, error) {
+	out := new(MsgJailResponse)
+	err := c.cc.Invoke(ctx, "/cosmos.slashing.v1beta1.Msg/Jail", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *msgClient) Unjail(ctx context.Context, in *MsgUnjail, opts ...grpc.CallOption) (*MsgUnjailResponse, error) {
@@ -392,6 +609,8 @@ func (c *msgClient) UpdateParams(ctx context.Context, in *MsgUpdateParams, opts 
 
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
+	// Jail defines governance operation to jail a validator
+	Jail(context.Context, *MsgJail) (*MsgJailResponse, error)
 	// Unjail defines a method for unjailing a jailed validator, thus returning
 	// them into the bonded validator set, so they can begin receiving provisions
 	// and rewards again.
@@ -407,6 +626,9 @@ type MsgServer interface {
 type UnimplementedMsgServer struct {
 }
 
+func (*UnimplementedMsgServer) Jail(ctx context.Context, req *MsgJail) (*MsgJailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Jail not implemented")
+}
 func (*UnimplementedMsgServer) Unjail(ctx context.Context, req *MsgUnjail) (*MsgUnjailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Unjail not implemented")
 }
@@ -416,6 +638,24 @@ func (*UnimplementedMsgServer) UpdateParams(ctx context.Context, req *MsgUpdateP
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
 	s.RegisterService(&_Msg_serviceDesc, srv)
+}
+
+func _Msg_Jail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgJail)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).Jail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cosmos.slashing.v1beta1.Msg/Jail",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).Jail(ctx, req.(*MsgJail))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _Msg_Unjail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -459,6 +699,10 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "Jail",
+			Handler:    _Msg_Jail_Handler,
+		},
+		{
 			MethodName: "Unjail",
 			Handler:    _Msg_Unjail_Handler,
 		},
@@ -469,6 +713,68 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 	},
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "cosmos/slashing/v1beta1/tx.proto",
+}
+
+func (m *MsgJail) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgJail) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgJail) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.ValidatorAddresses) > 0 {
+		for iNdEx := len(m.ValidatorAddresses) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.ValidatorAddresses[iNdEx])
+			copy(dAtA[i:], m.ValidatorAddresses[iNdEx])
+			i = encodeVarintTx(dAtA, i, uint64(len(m.ValidatorAddresses[iNdEx])))
+			i--
+			dAtA[i] = 0x12
+		}
+	}
+	if len(m.Authority) > 0 {
+		i -= len(m.Authority)
+		copy(dAtA[i:], m.Authority)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Authority)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgJailResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgJailResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgJailResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	return len(dAtA) - i, nil
 }
 
 func (m *MsgUnjail) Marshal() (dAtA []byte, err error) {
@@ -598,6 +904,34 @@ func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	dAtA[offset] = uint8(v)
 	return base
 }
+func (m *MsgJail) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Authority)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	if len(m.ValidatorAddresses) > 0 {
+		for _, s := range m.ValidatorAddresses {
+			l = len(s)
+			n += 1 + l + sovTx(uint64(l))
+		}
+	}
+	return n
+}
+
+func (m *MsgJailResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	return n
+}
+
 func (m *MsgUnjail) Size() (n int) {
 	if m == nil {
 		return 0
@@ -649,6 +983,170 @@ func sovTx(x uint64) (n int) {
 }
 func sozTx(x uint64) (n int) {
 	return sovTx(uint64((x << 1) ^ uint64((int64(x) >> 63))))
+}
+func (m *MsgJail) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgJail: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgJail: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Authority", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Authority = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ValidatorAddresses", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ValidatorAddresses = append(m.ValidatorAddresses, string(dAtA[iNdEx:postIndex]))
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgJailResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgJailResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgJailResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
 }
 func (m *MsgUnjail) Unmarshal(dAtA []byte) error {
 	l := len(dAtA)

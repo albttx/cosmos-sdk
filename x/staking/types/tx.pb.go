@@ -43,12 +43,28 @@ type MsgCreateValidator struct {
 	Description       Description                            `protobuf:"bytes,1,opt,name=description,proto3" json:"description"`
 	Commission        CommissionRates                        `protobuf:"bytes,2,opt,name=commission,proto3" json:"commission"`
 	MinSelfDelegation github_com_cosmos_cosmos_sdk_types.Int `protobuf:"bytes,3,opt,name=min_self_delegation,json=minSelfDelegation,proto3,customtype=github.com/cosmos/cosmos-sdk/types.Int" json:"min_self_delegation"`
+<<<<<<< Updated upstream
 	// Deprecated: Use of Delegator Address in MsgCreateValidator is deprecated.
 	// The validator address bytes and delegator address bytes refer to the same account while creating validator (defer only in bech32 notation).
+=======
+<<<<<<< Updated upstream
+	DelegatorAddress  string                                 `protobuf:"bytes,4,opt,name=delegator_address,json=delegatorAddress,proto3" json:"delegator_address,omitempty"`
+	ValidatorAddress  string                                 `protobuf:"bytes,5,opt,name=validator_address,json=validatorAddress,proto3" json:"validator_address,omitempty"`
+	Pubkey            *types.Any                             `protobuf:"bytes,6,opt,name=pubkey,proto3" json:"pubkey,omitempty"`
+	Value             types1.Coin                            `protobuf:"bytes,7,opt,name=value,proto3" json:"value"`
+=======
+	// Deprecated: Use of Delegator Address in MsgCreateValidator is deprecated.
+	// The validator address bytes and delegator address bytes refer to the same account while creating validator (defer
+	// only in bech32 notation).
+>>>>>>> Stashed changes
 	DelegatorAddress string      `protobuf:"bytes,4,opt,name=delegator_address,json=delegatorAddress,proto3" json:"delegator_address,omitempty"` // Deprecated: Do not use.
 	ValidatorAddress string      `protobuf:"bytes,5,opt,name=validator_address,json=validatorAddress,proto3" json:"validator_address,omitempty"`
 	Pubkey           *types.Any  `protobuf:"bytes,6,opt,name=pubkey,proto3" json:"pubkey,omitempty"`
 	Value            types1.Coin `protobuf:"bytes,7,opt,name=value,proto3" json:"value"`
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 }
 
 func (m *MsgCreateValidator) Reset()         { *m = MsgCreateValidator{} }

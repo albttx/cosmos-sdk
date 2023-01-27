@@ -190,6 +190,11 @@ message QuerySpendableBalancesResponse {
   cosmos.base.query.v1beta1.PageResponse pagination = 2;
 }
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 // QuerySpendableBalanceByDenomRequest defines the gRPC request structure for
 // querying an account's spendable balance for a specific denom.
 //
@@ -214,7 +219,11 @@ message QuerySpendableBalanceByDenomResponse {
   cosmos.base.v1beta1.Coin balance = 1;
 }
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 // QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC
 // method.
 message QueryTotalSupplyRequest {
