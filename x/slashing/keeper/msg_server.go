@@ -5,6 +5,7 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/cosmos-sdk/types/errors"
+	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	"github.com/cosmos/cosmos-sdk/x/slashing/types"
 )
@@ -33,6 +34,39 @@ func (k msgServer) UpdateParams(goCtx context.Context, req *types.MsgUpdateParam
 	}
 
 	return &types.MsgUpdateParamsResponse{}, nil
+}
+
+// Jail implements MsgServer.Jail method.
+func (k msgServer) Jail(goCtx context.Context, msg *types.MsgJail) (*types.MsgJailResponse, error) {
+	if k.GetAuthority() != msg.Authority {
+		return nil, sdkerrors.Wrapf(govtypes.ErrInvalidSigner, "invalid authority; expected %s, got %s", k.GetAuthority(), msg.Authority)
+	}
+
+	ctx := sdk.UnwrapSDKContext(goCtx)
+
+	for _, addr := range msg.ValidatorAddresses {
+		valAddr, valErr := sdk.ValAddressFromBech32(addr)
+		if valErr != nil {
+			// NOTE(albttx): do we really want to fail ? maybe just continue and jail the list
+			return nil, valErr
+		}
+
+		validator := k.sk.Validator(ctx, valAddr)
+		if validator == nil {
+			return nil, types.ErrNoValidatorForAddress
+		}
+
+		if !validator.IsJailed() {
+			// NOTE(albttx): should i slash the validator ?
+			// k.Keeper.Slash(ctx, sdk.ConsAddress(valAddr), 10, 10, 42)
+			// k.Keeper.SlashWithInfractionReason()
+
+			k.Keeper.Jail(ctx, sdk.ConsAddress(valAddr))
+		}
+
+	}
+
+	return &types.MsgJailResponse{}, nil
 }
 
 // Unjail implements MsgServer.Unjail method.

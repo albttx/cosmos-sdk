@@ -22,6 +22,8 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type MsgClient interface {
+	// Jail defines governance operation to jail a validator
+	Jail(ctx context.Context, in *MsgJail, opts ...grpc.CallOption) (*MsgJailResponse, error)
 	// Unjail defines a method for unjailing a jailed validator, thus returning
 	// them into the bonded validator set, so they can begin receiving provisions
 	// and rewards again.
@@ -39,6 +41,15 @@ type msgClient struct {
 
 func NewMsgClient(cc grpc.ClientConnInterface) MsgClient {
 	return &msgClient{cc}
+}
+
+func (c *msgClient) Jail(ctx context.Context, in *MsgJail, opts ...grpc.CallOption) (*MsgJailResponse, error) {
+	out := new(MsgJailResponse)
+	err := c.cc.Invoke(ctx, "/cosmos.slashing.v1beta1.Msg/Jail", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *msgClient) Unjail(ctx context.Context, in *MsgUnjail, opts ...grpc.CallOption) (*MsgUnjailResponse, error) {
@@ -63,6 +74,8 @@ func (c *msgClient) UpdateParams(ctx context.Context, in *MsgUpdateParams, opts 
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility
 type MsgServer interface {
+	// Jail defines governance operation to jail a validator
+	Jail(context.Context, *MsgJail) (*MsgJailResponse, error)
 	// Unjail defines a method for unjailing a jailed validator, thus returning
 	// them into the bonded validator set, so they can begin receiving provisions
 	// and rewards again.
@@ -79,6 +92,9 @@ type MsgServer interface {
 type UnimplementedMsgServer struct {
 }
 
+func (UnimplementedMsgServer) Jail(context.Context, *MsgJail) (*MsgJailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Jail not implemented")
+}
 func (UnimplementedMsgServer) Unjail(context.Context, *MsgUnjail) (*MsgUnjailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Unjail not implemented")
 }
@@ -96,6 +112,24 @@ type UnsafeMsgServer interface {
 
 func RegisterMsgServer(s grpc.ServiceRegistrar, srv MsgServer) {
 	s.RegisterService(&Msg_ServiceDesc, srv)
+}
+
+func _Msg_Jail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgJail)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).Jail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/cosmos.slashing.v1beta1.Msg/Jail",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).Jail(ctx, req.(*MsgJail))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _Msg_Unjail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -141,6 +175,10 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "cosmos.slashing.v1beta1.Msg",
 	HandlerType: (*MsgServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Jail",
+			Handler:    _Msg_Jail_Handler,
+		},
 		{
 			MethodName: "Unjail",
 			Handler:    _Msg_Unjail_Handler,
